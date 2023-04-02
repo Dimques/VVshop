@@ -1,0 +1,1048 @@
+<!DOCTYPE html>
+<html lang="ru">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <link rel="stylesheet" href="css/normalize.css">
+  <link rel="stylesheet" href="css/swiper-bundle.min.css">
+  <link rel="stylesheet" href="css/virtual-select.min.css">
+  <link rel="stylesheet" href="css/style.min.css">
+
+  <title>title</title>
+</head>
+
+<body>
+  <div class="wrapper">
+    <div class="content">
+      <header class="header">
+        <div class="header__wrapper">
+          <div class="burger js-burger">
+            <div class="burger__line"></div>
+          </div>
+
+          <ul class="menu js-menu">
+            <li class="menu__item">
+              <a href="index.html" class="menu__link">Главная</a>
+            </li>
+            <li class="menu__item">
+              <a href="sets.html" class="menu__link">Готовые аутфиты</a>
+            </li>
+            <li class="menu__item">
+              <a href="constructor.html" class="menu__link">Конструктор</a>
+            </li>
+          </ul>
+
+          <div class="header__inner">
+            <label class="amount">
+              <div class="amount__text">Бюджет</div>
+              <input type="number" class="amount__input" placeholder="Бюджет">
+            </label>
+
+            <a href="#" class="cart-btn">
+              <span class="cart-btn__icon icon-cart"></span>
+            </a>
+
+            <a href="#" class="profile-btn">
+              <span class="profile-btn_icon icon-profile"></span>
+              <div class="profile-btn__text">Профиль</div>
+            </a>
+          </div>
+        </div>
+      </header>
+
+      <div class="main">
+
+<section>
+  <div class="container">
+    <h2 class="complete__title">Женские блузы и рубашки</h2>
+
+    <form class="filter">
+      <div class="filter__wrapper">
+        <div class="filter__item" id="sort-price"></div>
+
+        <script>
+          document.addEventListener("DOMContentLoaded", function () {
+            VirtualSelect.init({
+              ele: '#sort-price',
+              options: [
+                { label: 'по возрастанию', value: '1' },
+                { label: 'по убыванию', value: '2' },
+              ],
+              placeholder: 'По цене',
+              hideClearButton: true,
+            });
+          });
+        </script>
+
+        <div class="filter__right js-filters-btn">
+          <span class="filter__right_icon icon-filter"></span>
+          Фильтры
+        </div>
+      </div>
+
+      <div class="filter__bottom">
+        <div class="filter__select" id="js-filter-select-1"></div>
+        <div class="filter__select" id="js-filter-select-2"></div>
+        <div class="filter__select" id="js-filter-select-3"></div>
+        <label class="filter__label">
+          <input type="checkbox" name="onlysale" class="filter__checkbox hidden">
+          <div class="filter__checkbox-btn">Только со скидкой</div>
+        </label>
+
+        <script>
+          document.addEventListener("DOMContentLoaded", function () {
+            VirtualSelect.init({
+              ele: '#js-filter-select-1',
+              options: [
+                { label: 'Опция 1', value: '1' },
+                { label: 'Опция 2', value: '2' },
+                { label: 'Опция 3', value: '3' },
+                { label: 'Опция 4', value: '4' },
+                { label: 'Опция 5', value: '5' },
+              ],
+              placeholder: 'Цвет',
+              hideClearButton: true,
+            });
+
+            VirtualSelect.init({
+              ele: '#js-filter-select-2',
+              options: [
+                { label: 'Опция 1', value: '1' },
+                { label: 'Опция 2', value: '2' },
+                { label: 'Опция 3', value: '3' },
+                { label: 'Опция 4', value: '4' },
+                { label: 'Опция 5', value: '5' },
+              ],
+              placeholder: 'Материалы',
+              hideClearButton: true,
+            });
+
+            VirtualSelect.init({
+              ele: '#js-filter-select-3',
+              options: [
+                { label: 'Опция 1', value: '1' },
+                { label: 'Опция 2', value: '2' },
+                { label: 'Опция 3', value: '3' },
+                { label: 'Опция 4', value: '4' },
+                { label: 'Опция 5', value: '5' },
+              ],
+              placeholder: 'Бренд',
+              hideClearButton: true,
+            });
+          });
+        </script>
+      </div>
+    </form>
+
+    <div class="swiper js-catalog-slider">
+      <div class="swiper-wrapper">
+
+        <div class="swiper-slide card">
+          <a href="products-detail.html" class="card__top">
+            <img src="img/content-21.jpg" alt="" class="card__img">
+          </a>
+
+          <div class="card__bottom">
+            <div class="card__price">1 200 ₽ </div>
+            <button type="button" class="card__arrow icon-chevron-right"></button>
+          </div>
+
+          <button type="button" class="card__tofav icon-heart"></button>
+        </div>
+
+        <div class="swiper-slide card">
+          <a href="products-detail.html" class="card__top">
+            <img src="img/content-22.jpg" alt="" class="card__img">
+          </a>
+
+          <div class="card__bottom">
+            <div class="card__price">1 200 ₽</div>
+            <button type="button" class="card__arrow icon-chevron-right"></button>
+          </div>
+
+          <button type="button" class="card__tofav icon-heart"></button>
+        </div>
+
+        <div class="swiper-slide card">
+          <a href="products-detail.html" class="card__top">
+            <img src="img/content-23.jpg" alt="" class="card__img">
+
+            <div class="card__tags">
+              <div class="card__sale">-67%</div>
+              <div class="card__over">Превысит бюджет</div>
+            </div>
+          </a>
+
+          <div class="card__bottom">
+            <div class="card__price_old">2 000 ₽</div>
+            <div class="card__price">1 400 ₽</div>
+            <button type="button" class="card__arrow icon-chevron-right"></button>
+          </div>
+
+          <button type="button" class="card__tofav icon-heart"></button>
+        </div>
+
+        <div class="swiper-slide card">
+          <a href="products-detail.html" class="card__top">
+            <img src="img/content-24.jpg" alt="" class="card__img">
+
+            <div class="card__tags">
+              <div class="card__over">Превысит бюджет</div>
+            </div>
+          </a>
+
+          <div class="card__bottom">
+            <div class="card__price">1 400 ₽</div>
+            <button type="button" class="card__arrow icon-chevron-right"></button>
+          </div>
+
+          <button type="button" class="card__tofav icon-heart"></button>
+        </div>
+
+        <div class="swiper-slide card">
+          <a href="products-detail.html" class="card__top">
+            <img src="img/content-25.jpg" alt="" class="card__img">
+
+            <div class="card__tags">
+              <div class="card__sale">-67%</div>
+            </div>
+          </a>
+
+          <div class="card__bottom">
+            <div class="card__price_old">2 000 ₽</div>
+            <div class="card__price">1 200 ₽</div>
+            <button type="button" class="card__arrow icon-chevron-right"></button>
+          </div>
+
+          <button type="button" class="card__tofav icon-heart"></button>
+        </div>
+
+        <div class="swiper-slide card">
+          <a href="products-detail.html" class="card__top">
+            <img src="img/content-26.jpg" alt="" class="card__img">
+          </a>
+
+          <div class="card__bottom">
+            <div class="card__price">1 200 ₽</div>
+            <button type="button" class="card__arrow icon-chevron-right"></button>
+          </div>
+
+          <button type="button" class="card__tofav icon-heart"></button>
+        </div>
+
+        <div class="swiper-slide card">
+          <a href="products-detail.html" class="card__top">
+            <img src="img/content-27.jpg" alt="" class="card__img">
+          </a>
+
+          <div class="card__bottom">
+            <div class="card__price">1 200 ₽</div>
+            <button type="button" class="card__arrow icon-chevron-right"></button>
+          </div>
+
+          <button type="button" class="card__tofav icon-heart"></button>
+        </div>
+
+        <div class="swiper-slide card">
+          <a href="products-detail.html" class="card__top">
+            <img src="img/content-28.jpg" alt="" class="card__img">
+          </a>
+
+          <div class="card__bottom">
+            <div class="card__price">1 200 ₽</div>
+            <button type="button" class="card__arrow icon-chevron-right"></button>
+          </div>
+
+          <button type="button" class="card__tofav icon-heart"></button>
+        </div>
+
+        <div class="swiper-slide card">
+          <a href="products-detail.html" class="card__top">
+            <img src="img/content-29.jpg" alt="" class="card__img">
+
+            <div class="card__tags">
+              <div class="card__sale">-67%</div>
+            </div>
+          </a>
+
+          <div class="card__bottom">
+            <div class="card__price_old">2 000 ₽</div>
+            <div class="card__price">1 200 ₽</div>
+            <button type="button" class="card__arrow icon-chevron-right"></button>
+          </div>
+
+          <button type="button" class="card__tofav icon-heart"></button>
+        </div>
+
+
+
+        <div class="swiper-slide card">
+          <a href="products-detail.html" class="card__top">
+            <img src="img/content-26.jpg" alt="" class="card__img">
+          </a>
+
+          <div class="card__bottom">
+            <div class="card__price">1 200 ₽</div>
+            <button type="button" class="card__arrow icon-chevron-right"></button>
+          </div>
+
+          <button type="button" class="card__tofav icon-heart"></button>
+        </div>
+
+        <div class="swiper-slide card">
+          <a href="products-detail.html" class="card__top">
+            <img src="img/content-27.jpg" alt="" class="card__img">
+          </a>
+
+          <div class="card__bottom">
+            <div class="card__price">1 200 ₽</div>
+            <button type="button" class="card__arrow icon-chevron-right"></button>
+          </div>
+
+          <button type="button" class="card__tofav icon-heart"></button>
+        </div>
+
+        <div class="swiper-slide card">
+          <a href="products-detail.html" class="card__top">
+            <img src="img/content-28.jpg" alt="" class="card__img">
+          </a>
+
+          <div class="card__bottom">
+            <div class="card__price">1 200 ₽</div>
+            <button type="button" class="card__arrow icon-chevron-right"></button>
+          </div>
+
+          <button type="button" class="card__tofav icon-heart"></button>
+        </div>
+
+        <div class="swiper-slide card">
+          <a href="products-detail.html" class="card__top">
+            <img src="img/content-21.jpg" alt="" class="card__img">
+          </a>
+
+          <div class="card__bottom">
+            <div class="card__price">1 200 ₽ </div>
+            <button type="button" class="card__arrow icon-chevron-right"></button>
+          </div>
+
+          <button type="button" class="card__tofav icon-heart"></button>
+        </div>
+
+        <div class="swiper-slide card">
+          <a href="products-detail.html" class="card__top">
+            <img src="img/content-22.jpg" alt="" class="card__img">
+          </a>
+
+          <div class="card__bottom">
+            <div class="card__price">1 200 ₽</div>
+            <button type="button" class="card__arrow icon-chevron-right"></button>
+          </div>
+
+          <button type="button" class="card__tofav icon-heart"></button>
+        </div>
+
+        <div class="swiper-slide card">
+          <a href="products-detail.html" class="card__top">
+            <img src="img/content-29.jpg" alt="" class="card__img">
+
+            <div class="card__tags">
+              <div class="card__sale">-67%</div>
+            </div>
+          </a>
+
+          <div class="card__bottom">
+            <div class="card__price_old">2 000 ₽</div>
+            <div class="card__price">1 200 ₽</div>
+            <button type="button" class="card__arrow icon-chevron-right"></button>
+          </div>
+
+          <button type="button" class="card__tofav icon-heart"></button>
+        </div>
+
+        <div class="swiper-slide card">
+          <a href="products-detail.html" class="card__top">
+            <img src="img/content-23.jpg" alt="" class="card__img">
+
+            <div class="card__tags">
+              <div class="card__sale">-67%</div>
+              <div class="card__over">Превысит бюджет</div>
+            </div>
+          </a>
+
+          <div class="card__bottom">
+            <div class="card__price_old">2 000 ₽</div>
+            <div class="card__price">1 400 ₽</div>
+            <button type="button" class="card__arrow icon-chevron-right"></button>
+          </div>
+
+          <button type="button" class="card__tofav icon-heart"></button>
+        </div>
+
+        <div class="swiper-slide card">
+          <a href="products-detail.html" class="card__top">
+            <img src="img/content-24.jpg" alt="" class="card__img">
+
+            <div class="card__tags">
+              <div class="card__over">Превысит бюджет</div>
+            </div>
+          </a>
+
+          <div class="card__bottom">
+            <div class="card__price">1 400 ₽</div>
+            <button type="button" class="card__arrow icon-chevron-right"></button>
+          </div>
+
+          <button type="button" class="card__tofav icon-heart"></button>
+        </div>
+
+        <div class="swiper-slide card">
+          <a href="products-detail.html" class="card__top">
+            <img src="img/content-25.jpg" alt="" class="card__img">
+
+            <div class="card__tags">
+              <div class="card__sale">-67%</div>
+            </div>
+          </a>
+
+          <div class="card__bottom">
+            <div class="card__price_old">2 000 ₽</div>
+            <div class="card__price">1 200 ₽</div>
+            <button type="button" class="card__arrow icon-chevron-right"></button>
+          </div>
+
+          <button type="button" class="card__tofav icon-heart"></button>
+        </div>
+
+
+
+        <div class="swiper-slide card">
+          <a href="products-detail.html" class="card__top">
+            <img src="img/content-28.jpg" alt="" class="card__img">
+          </a>
+
+          <div class="card__bottom">
+            <div class="card__price">1 200 ₽</div>
+            <button type="button" class="card__arrow icon-chevron-right"></button>
+          </div>
+
+          <button type="button" class="card__tofav icon-heart"></button>
+        </div>
+
+        <div class="swiper-slide card">
+          <a href="products-detail.html" class="card__top">
+            <img src="img/content-24.jpg" alt="" class="card__img">
+
+            <div class="card__tags">
+              <div class="card__over">Превысит бюджет</div>
+            </div>
+          </a>
+
+          <div class="card__bottom">
+            <div class="card__price">1 400 ₽</div>
+            <button type="button" class="card__arrow icon-chevron-right"></button>
+          </div>
+
+          <button type="button" class="card__tofav icon-heart"></button>
+        </div>
+
+        <div class="swiper-slide card">
+          <a href="products-detail.html" class="card__top">
+            <img src="img/content-25.jpg" alt="" class="card__img">
+
+            <div class="card__tags">
+              <div class="card__sale">-67%</div>
+            </div>
+          </a>
+
+          <div class="card__bottom">
+            <div class="card__price_old">2 000 ₽</div>
+            <div class="card__price">1 200 ₽</div>
+            <button type="button" class="card__arrow icon-chevron-right"></button>
+          </div>
+
+          <button type="button" class="card__tofav icon-heart"></button>
+        </div>
+
+        <div class="swiper-slide card">
+          <a href="products-detail.html" class="card__top">
+            <img src="img/content-21.jpg" alt="" class="card__img">
+          </a>
+
+          <div class="card__bottom">
+            <div class="card__price">1 200 ₽ </div>
+            <button type="button" class="card__arrow icon-chevron-right"></button>
+          </div>
+
+          <button type="button" class="card__tofav icon-heart"></button>
+        </div>
+
+        <div class="swiper-slide card">
+          <a href="products-detail.html" class="card__top">
+            <img src="img/content-26.jpg" alt="" class="card__img">
+          </a>
+
+          <div class="card__bottom">
+            <div class="card__price">1 200 ₽</div>
+            <button type="button" class="card__arrow icon-chevron-right"></button>
+          </div>
+
+          <button type="button" class="card__tofav icon-heart"></button>
+        </div>
+
+        <div class="swiper-slide card">
+          <a href="products-detail.html" class="card__top">
+            <img src="img/content-27.jpg" alt="" class="card__img">
+          </a>
+
+          <div class="card__bottom">
+            <div class="card__price">1 200 ₽</div>
+            <button type="button" class="card__arrow icon-chevron-right"></button>
+          </div>
+
+          <button type="button" class="card__tofav icon-heart"></button>
+        </div>
+
+        <div class="swiper-slide card">
+          <a href="products-detail.html" class="card__top">
+            <img src="img/content-22.jpg" alt="" class="card__img">
+          </a>
+
+          <div class="card__bottom">
+            <div class="card__price">1 200 ₽</div>
+            <button type="button" class="card__arrow icon-chevron-right"></button>
+          </div>
+
+          <button type="button" class="card__tofav icon-heart"></button>
+        </div>
+
+        <div class="swiper-slide card">
+          <a href="products-detail.html" class="card__top">
+            <img src="img/content-29.jpg" alt="" class="card__img">
+
+            <div class="card__tags">
+              <div class="card__sale">-67%</div>
+            </div>
+          </a>
+
+          <div class="card__bottom">
+            <div class="card__price_old">2 000 ₽</div>
+            <div class="card__price">1 200 ₽</div>
+            <button type="button" class="card__arrow icon-chevron-right"></button>
+          </div>
+
+          <button type="button" class="card__tofav icon-heart"></button>
+        </div>
+
+        <div class="swiper-slide card">
+          <a href="products-detail.html" class="card__top">
+            <img src="img/content-23.jpg" alt="" class="card__img">
+
+            <div class="card__tags">
+              <div class="card__sale">-67%</div>
+              <div class="card__over">Превысит бюджет</div>
+            </div>
+          </a>
+
+          <div class="card__bottom">
+            <div class="card__price_old">2 000 ₽</div>
+            <div class="card__price">1 400 ₽</div>
+            <button type="button" class="card__arrow icon-chevron-right"></button>
+          </div>
+
+          <button type="button" class="card__tofav icon-heart"></button>
+        </div>
+      </div>
+    </div>
+
+    <div class="catalog-pagination">
+      <button type="button" class="catalog-pagination_arrow catalog-pagination_prev">
+        <span class="icon-arrow-left"></span>
+        Назад
+      </button>
+
+      <div class="catalog-pagination__dots"></div>
+
+      <button type="button" class="catalog-pagination_arrow catalog-pagination_next">
+        Дальше
+        <span class="icon-arrow-right"></span>
+      </button>
+    </div>
+
+  </div>
+</section>
+
+<div class="filters js-filters">
+  <div class="filters__overlay js-filters-overlay"></div>
+
+  <div class="filters__container">
+    <div class="filters__top">
+      <div class="filters__title">Фильтры</div>
+      <button class="filters__close icon-arrow-right js-filters-close"></button>
+    </div>
+
+    <form action="" class="constructor">
+  <label class="constructor__row">
+    <div class="subtitle">Ваш бюджет:</div>
+
+    <input type="number" class="constructor__amount" placeholder="Введите бюджет">
+  </label>
+
+  <div class="gender">
+    <label>
+      <input name="gender" type="radio" value="female" class="gender__input hidden" checked>
+      <div class="gender__btn">Женское</div>
+    </label>
+
+    <label>
+      <input name="gender" type="radio" value="male" class="gender__input hidden">
+      <div class="gender__btn">Мужское</div>
+    </label>
+  </div>
+
+  <div class="constructor__row">
+    <div class="subtitle">Время года:</div>
+
+    <div class="season">
+      <label class="season__label">
+        <input name="season" type="checkbox" class="season__input hidden" checked>
+        <div class="season__btn icon-spring"></div>
+      </label>
+
+      <label class="season__label">
+        <input name="season" type="checkbox" class="season__input hidden">
+        <div class="season__btn icon-summer"></div>
+      </label>
+
+      <label class="season__label">
+        <input name="season" type="checkbox" class="season__input hidden">
+        <div class="season__btn icon-autumn"></div>
+      </label>
+
+      <label class="season__label">
+        <input name="season" type="checkbox" class="season__input hidden">
+        <div class="season__btn icon-winter"></div>
+      </label>
+    </div>
+  </div>
+
+  <div>
+    <div class="subtitle">Предпочитаемый стиль:</div>
+
+    <div class="type">
+      <label class="type__item">
+        <input name="type" type="checkbox" class="type__input hidden">
+        <div class="type__box">
+          <div class="type__top icon-ok">
+            <div class="type__img" style="background-image: url('img/style-1.jpg');"></div>
+          </div>
+          <div class="type__title">Casual</div>
+        </div>
+      </label>
+
+      <label class="type__item">
+        <input name="type" type="checkbox" class="type__input hidden">
+        <div class="type__box">
+          <div class="type__top icon-ok">
+            <div class="type__img" style="background-image: url('img/style-2.jpg');"></div>
+          </div>
+          <div class="type__title">Деловой</div>
+        </div>
+      </label>
+
+      <label class="type__item">
+        <input name="type" type="checkbox" class="type__input hidden">
+        <div class="type__box">
+          <div class="type__top icon-ok">
+            <div class="type__img" style="background-image: url('img/style-3.jpg');"></div>
+          </div>
+          <div class="type__title">Спортивный</div>
+        </div>
+      </label>
+
+      <label class="type__item">
+        <input name="type" type="checkbox" class="type__input hidden">
+        <div class="type__box">
+          <div class="type__top icon-ok">
+            <div class="type__img" style="background-image: url('img/style-4.jpg');"></div>
+          </div>
+          <div class="type__title">Вечерний</div>
+        </div>
+      </label>
+    </div>
+  </div>
+
+  <div>
+    <div class="subtitle">Выберите свои размеры:</div>
+
+    <div class="size">
+
+      <div class="size__wrapper">
+        <div class="size__select" id="js-size-select-1"></div>
+        <div class="size__select" id="js-size-select-2"></div>
+        <div class="size__select" id="js-size-select-3"></div>
+
+        <script>
+          document.addEventListener("DOMContentLoaded", function () {
+            VirtualSelect.init({
+              ele: '#js-size-select-1',
+              options: [
+                { label: 'S', value: 'S' },
+                { label: 'M', value: 'M' },
+                { label: 'L', value: 'L' },
+                { label: 'XL', value: 'XL' },
+                { label: 'XXL', value: 'XXL' },
+              ],
+              placeholder: 'Верх',
+              hideClearButton: true,
+            });
+
+            VirtualSelect.init({
+              ele: '#js-size-select-2',
+              options: [
+                { label: 'S', value: 'S' },
+                { label: 'M', value: 'M' },
+                { label: 'L', value: 'L' },
+                { label: 'XL', value: 'XL' },
+                { label: 'XXL', value: 'XXL' },
+              ],
+              placeholder: 'Низ',
+              hideClearButton: true,
+            });
+
+            VirtualSelect.init({
+              ele: '#js-size-select-3',
+              options: [
+                { label: 'S', value: 'S' },
+                { label: 'M', value: 'M' },
+                { label: 'L', value: 'L' },
+                { label: 'XL', value: 'XL' },
+                { label: 'XXL', value: 'XXL' },
+              ],
+              placeholder: 'Обувь',
+              hideClearButton: true,
+            });
+          });
+        </script>
+      </div>
+
+      <button type="reset" class="size__none">Не знаю свой размер</button>
+    </div>
+  </div>
+
+  <div>
+    <div class="subtitle">Предпочитаемые цвета:</div>
+
+    <div class="color">
+      <label class="color__item">
+        <input name="" value="white" type="checkbox" class="color__input hidden">
+        <div class="color__circle" style="background-color: #FFFFFF; border-color: #000; color: #000;"></div>
+      </label>
+      <label class="color__item">
+        <input name="" value="black" type="checkbox" class="color__input hidden">
+        <div class="color__circle" style="background-color: #656565;"></div>
+      </label>
+      <label class="color__item">
+        <input name="" value="red" type="checkbox" class="color__input hidden">
+        <div class="color__circle" style="background-color: #C61010;"></div>
+      </label>
+      <label class="color__item">
+        <input name="" value="darkorange" type="checkbox" class="color__input hidden">
+        <div class="color__circle" style="background-color: #D69D0C;"></div>
+      </label>
+      <label class="color__item">
+        <input name="" value="forestgreen" type="checkbox" class="color__input hidden">
+        <div class="color__circle" style="background-color: #466930;"></div>
+      </label>
+      <label class="color__item">
+        <input name="" value="darkturquoise" type="checkbox" class="color__input hidden">
+        <div class="color__circle" style="background-color: #71AAB7;"></div>
+      </label>
+      <label class="color__item">
+        <input name="" value="mediumslateblue" type="checkbox" class="color__input hidden">
+        <div class="color__circle" style="background-color: #5452AA;"></div>
+      </label>
+      <label class="color__item">
+        <input name="" value="mediumorchid" type="checkbox" class="color__input hidden">
+        <div class="color__circle" style="background-color: #B394CB;"></div>
+      </label>
+      <label class="color__item">
+        <input name="" value="peachpuff" type="checkbox" class="color__input hidden">
+        <div class="color__circle" style="background-color: #C19B9B;"></div>
+      </label>
+      <label class="color__item">
+        <input name="" value="darkgreen" type="checkbox" class="color__input hidden">
+        <div class="color__circle" style="background-color: #277755;"></div>
+      </label>
+      <label class="color__item">
+        <input name="" value="royalblue" type="checkbox" class="color__input hidden">
+        <div class="color__circle" style="background-color: #377ACA;"></div>
+      </label>
+      <label class="color__item">
+        <input name="" value="darkolivegreen" type="checkbox" class="color__input hidden">
+        <div class="color__circle" style="background-color: #5C7E4B;"></div>
+      </label>
+      <label class="color__item">
+        <input name="" value="olive" type="checkbox" class="color__input hidden">
+        <div class="color__circle" style="background-color: #C2AC5C;"></div>
+      </label>
+      <label class="color__item">
+        <input name="" value="lemonchiffon" type="checkbox" class="color__input hidden">
+        <div class="color__circle" style="background-color: #DFD5C6; color: #000;"></div>
+      </label>
+      <label class="color__item">
+        <input name="" value="peachpuff" type="checkbox" class="color__input hidden">
+        <div class="color__circle" style="background-color: #FFDCBC; color: #000;"></div>
+      </label>
+      <label class="color__item">
+        <input name="" value="indianred" type="checkbox" class="color__input hidden">
+        <div class="color__circle" style="background-color: #E26363;"></div>
+      </label>
+    </div>
+  </div>
+
+  <div>
+    <div class="subtitle">Необходимые предметы одежды:</div>
+
+    <div class="parts">
+      <div class="dropdown js-dropdown">
+        <label class="dropdown__label">
+          <input type="checkbox" class="dropdown__input hidden js-main-chackbox">
+          <div class="dropdown__checkbox icon-ok"></div>
+        </label>
+
+        <div class="dropdown__item">
+          <div class="dropdown__title js-dropdown-title">
+            Верхняя одежда
+            <span class="dropdown__arrow icon-chevron-right"></span>
+          </div>
+          <div class="dropdown__wrapper">
+            <label class="dropdown__option">
+              <input type="checkbox" class="hidden all js-ckeckbox-all">
+              <div class="dropdown__value">Все товары категории</div>
+            </label>
+            <label class="dropdown__option js-option">
+              <input type="checkbox" class="dropdown__option-input hidden">
+              <div class="dropdown__value">Толстовка</div>
+            </label>
+            <label class="dropdown__option js-option">
+              <input type="checkbox" class="dropdown__option-input hidden">
+              <div class="dropdown__value">Худи</div>
+            </label>
+            <label class="dropdown__option js-option">
+              <input type="checkbox" class="dropdown__option-input hidden">
+              <div class="dropdown__value">Кофта</div>
+            </label>
+            <label class="dropdown__option js-option">
+              <input type="checkbox" class="dropdown__option-input hidden">
+              <div class="dropdown__value">Олимпийка</div>
+            </label>
+          </div>
+        </div>
+      </div>
+
+      <div class="dropdown js-dropdown">
+        <label class="dropdown__label">
+          <input type="checkbox" class="dropdown__input hidden js-main-chackbox">
+          <div class="dropdown__checkbox icon-ok"></div>
+        </label>
+
+        <div class="dropdown__item">
+          <div class="dropdown__title js-dropdown-title">
+            Верх
+            <span class="dropdown__arrow icon-chevron-right"></span>
+          </div>
+          <div class="dropdown__wrapper">
+            <label class="dropdown__option">
+              <input type="checkbox" class="hidden all js-ckeckbox-all">
+              <div class="dropdown__value">Все товары категории</div>
+            </label>
+            <label class="dropdown__option js-option">
+              <input type="checkbox" class="dropdown__option-input hidden">
+              <div class="dropdown__value">Толстовка</div>
+            </label>
+            <label class="dropdown__option js-option">
+              <input type="checkbox" class="dropdown__option-input hidden">
+              <div class="dropdown__value">Худи</div>
+            </label>
+            <label class="dropdown__option js-option">
+              <input type="checkbox" class="dropdown__option-input hidden">
+              <div class="dropdown__value">Кофта</div>
+            </label>
+            <label class="dropdown__option js-option">
+              <input type="checkbox" class="dropdown__option-input hidden">
+              <div class="dropdown__value">Олимпийка</div>
+            </label>
+          </div>
+        </div>
+      </div>
+
+      <div class="dropdown js-dropdown">
+        <label class="dropdown__label">
+          <input type="checkbox" class="dropdown__input hidden js-main-chackbox">
+          <div class="dropdown__checkbox icon-ok"></div>
+        </label>
+
+        <div class="dropdown__item">
+          <div class="dropdown__title js-dropdown-title">
+            Низ
+            <span class="dropdown__arrow icon-chevron-right"></span>
+          </div>
+          <div class="dropdown__wrapper">
+            <label class="dropdown__option">
+              <input type="checkbox" class="hidden all js-ckeckbox-all">
+              <div class="dropdown__value">Все товары категории</div>
+            </label>
+            <label class="dropdown__option js-option">
+              <input type="checkbox" class="dropdown__option-input hidden">
+              <div class="dropdown__value">Толстовка</div>
+            </label>
+            <label class="dropdown__option js-option">
+              <input type="checkbox" class="dropdown__option-input hidden">
+              <div class="dropdown__value">Худи</div>
+            </label>
+            <label class="dropdown__option js-option">
+              <input type="checkbox" class="dropdown__option-input hidden">
+              <div class="dropdown__value">Кофта</div>
+            </label>
+            <label class="dropdown__option js-option">
+              <input type="checkbox" class="dropdown__option-input hidden">
+              <div class="dropdown__value">Олимпийка</div>
+            </label>
+          </div>
+        </div>
+      </div>
+
+      <div class="dropdown js-dropdown">
+        <label class="dropdown__label">
+          <input type="checkbox" class="dropdown__input hidden js-main-chackbox">
+          <div class="dropdown__checkbox icon-ok"></div>
+        </label>
+
+        <div class="dropdown__item">
+          <div class="dropdown__title js-dropdown-title">
+            Обувь
+            <span class="dropdown__arrow icon-chevron-right"></span>
+          </div>
+          <div class="dropdown__wrapper">
+            <label class="dropdown__option">
+              <input type="checkbox" class="hidden all js-ckeckbox-all">
+              <div class="dropdown__value">Все товары категории</div>
+            </label>
+            <label class="dropdown__option js-option">
+              <input type="checkbox" class="dropdown__option-input hidden">
+              <div class="dropdown__value">Толстовка</div>
+            </label>
+            <label class="dropdown__option js-option">
+              <input type="checkbox" class="dropdown__option-input hidden">
+              <div class="dropdown__value">Худи</div>
+            </label>
+            <label class="dropdown__option js-option">
+              <input type="checkbox" class="dropdown__option-input hidden">
+              <div class="dropdown__value">Кофта</div>
+            </label>
+            <label class="dropdown__option js-option">
+              <input type="checkbox" class="dropdown__option-input hidden">
+              <div class="dropdown__value">Олимпийка</div>
+            </label>
+          </div>
+        </div>
+      </div>
+
+      <div class="dropdown js-dropdown">
+        <label class="dropdown__label">
+          <input type="checkbox" class="dropdown__input hidden js-main-chackbox">
+          <div class="dropdown__checkbox icon-ok"></div>
+        </label>
+
+        <div class="dropdown__item">
+          <div class="dropdown__title js-dropdown-title">
+            Аксессуары
+            <span class="dropdown__arrow icon-chevron-right"></span>
+          </div>
+          <div class="dropdown__wrapper">
+            <label class="dropdown__option">
+              <input type="checkbox" class="hidden all js-ckeckbox-all">
+              <div class="dropdown__value">Все товары категории</div>
+            </label>
+            <label class="dropdown__option js-option">
+              <input type="checkbox" class="dropdown__option-input hidden">
+              <div class="dropdown__value">Толстовка</div>
+            </label>
+            <label class="dropdown__option js-option">
+              <input type="checkbox" class="dropdown__option-input hidden">
+              <div class="dropdown__value">Худи</div>
+            </label>
+            <label class="dropdown__option js-option">
+              <input type="checkbox" class="dropdown__option-input hidden">
+              <div class="dropdown__value">Кофта</div>
+            </label>
+            <label class="dropdown__option js-option">
+              <input type="checkbox" class="dropdown__option-input hidden">
+              <div class="dropdown__value">Олимпийка</div>
+            </label>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- <button type="submit" class="btn btn_red constructor__submit">Собрать аутфит</button> -->
+  <div class="constructor__submit-wrapper">
+    <a href="constructor-result.html" class="btn btn_red constructor__submit">Собрать аутфит</a>
+  </div>
+</form>
+  </div>
+</div>
+
+</div>
+</div>
+
+<footer class="footer">
+  <div class="footer__wrapper container">
+    <ul class="footer__list">
+      <li class="footer__item">
+        <a href="/" class="footer__link">Главная</a>
+      </li>
+      <li class="footer__item">
+        <a href="/" class="footer__link">Готовые аутфиты</a>
+      </li>
+      <li class="footer__item">
+        <a href="/" class="footer__link">Профиль</a>
+      </li>
+      <li class="footer__item">
+        <a href="/" class="footer__link">Конструктор аутфитов</a>
+      </li>
+    </ul>
+
+    <div class="app">
+      <div class="app__title">Скоро в смартфонах!</div>
+      <img src="img/google-play.png" alt="" class="app__img">
+    </div>
+
+    <div class="dev">
+      <svg class="dev__icon" width="56" height="56" viewBox="0 0 56 56" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <path d="M38.2805 16.8751C38.7569 16.2068 38.7569 15.3099 38.2805 14.6416C37.5134 13.5656 35.9148 13.5656 35.1477 14.6416L26.8873 26.2284C26.4109 26.8966 26.4109 27.7936 26.8873 28.4618C27.6544 29.5378 29.253 29.5378 30.0201 28.4618L38.2805 16.8751ZM47.7547 14.6364C46.9829 13.5614 45.3828 13.5641 44.6146 14.6416L30.0565 35.0619C29.2617 36.1768 27.6134 36.2005 26.7868 35.1089L18.4033 24.0372C17.6105 22.9902 16.0297 23.0129 15.2674 24.0822C14.7758 24.7717 14.7865 25.7 15.2939 26.3779L26.7895 41.7377C27.6127 42.8378 29.2684 42.8186 30.066 41.6998L47.7585 16.883C48.238 16.2104 48.2365 15.3073 47.7547 14.6364ZM9.62398 29.4835C9.12275 30.1816 9.13738 31.1255 9.66 31.8077L17.3691 41.8714C18.1649 42.9103 19.7387 42.8833 20.4983 41.8177C20.9942 41.1222 20.9785 40.1845 20.4596 39.506L12.7585 29.4362C11.9627 28.3956 10.388 28.4194 9.62398 29.4835Z" fill="white" fill-opacity="0.38" />
+        <mask id="mask0_104_143" style="mask-type:alpha" maskUnits="userSpaceOnUse" x="0" y="9" width="41" height="37">
+          <path d="M28.2028 44.7053L13.3236 26.512H10.483C11.4299 26.512 13.3236 26.0251 13.3236 24.0772C13.3236 22.1294 16.9758 21.1465 18.8018 20.8985L25.0917 29.0821L29.4878 31.3816L39.5651 17.1111L40.8502 13.3912V10.6859C40.1513 10.1449 37.9555 9.06274 34.7632 9.06274C31.5709 9.06274 21.0337 13.5265 16.1642 15.7584L5.54581 21.6425L0.946777 37.8067L14.8115 45.9903L28.2028 44.7053Z" fill="white" fill-opacity="0.38" />
+        </mask>
+        <g mask="url(#mask0_104_143)">
+          <path d="M38.2805 16.8751C38.7569 16.2068 38.7569 15.3099 38.2805 14.6416C37.5134 13.5656 35.9148 13.5656 35.1477 14.6416L26.8873 26.2284C26.4109 26.8966 26.4109 27.7936 26.8873 28.4618C27.6544 29.5378 29.253 29.5378 30.0201 28.4618L38.2805 16.8751ZM47.7547 14.6364C46.9829 13.5614 45.3828 13.5641 44.6146 14.6416L30.0565 35.0619C29.2617 36.1768 27.6134 36.2005 26.7868 35.1089L18.4033 24.0372C17.6105 22.9902 16.0297 23.0129 15.2674 24.0822C14.7758 24.7717 14.7865 25.7 15.2939 26.3779L26.7895 41.7377C27.6127 42.8378 29.2684 42.8186 30.066 41.6998L47.7585 16.883C48.238 16.2104 48.2365 15.3073 47.7547 14.6364ZM9.62398 29.4835C9.12275 30.1816 9.13738 31.1255 9.66 31.8077L17.3691 41.8714C18.1649 42.9103 19.7387 42.8833 20.4983 41.8177C20.9942 41.1222 20.9785 40.1845 20.4596 39.506L12.7585 29.4362C11.9627 28.3956 10.388 28.4194 9.62398 29.4835Z" fill="white" fill-opacity="0.38" />
+        </g>
+        <circle cx="28" cy="28" r="27.5" stroke="white" stroke-opacity="0.38" />
+      </svg>
+
+      <div class="dev__text">© VV app, 2022-2023</div>
+    </div>
+  </div>
+</footer>
+</div>
+
+<script src="js/swiper-bundle.min.js"></script>
+<script src="js/virtual-select.min.js"></script>
+<script src="js/script.min.js"></script>
+</body>
+
+</html>

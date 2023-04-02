@@ -1,0 +1,244 @@
+﻿<!DOCTYPE html>
+<html lang="ru">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <link rel="stylesheet" href="css/normalize.css">
+  <link rel="stylesheet" href="css/swiper-bundle.min.css">
+  <link rel="stylesheet" href="css/virtual-select.min.css">
+  <link rel="stylesheet" href="css/style.min.css">
+
+  <title>title</title>
+</head>
+
+<body>
+  <div class="wrapper">
+    <div class="content">
+      <header class="header">
+        <div class="header__wrapper">
+          <div class="burger js-burger">
+            <div class="burger__line"></div>
+          </div>
+
+          <ul class="menu js-menu">
+            <li class="menu__item">
+              <a href="index.html" class="menu__link">Главная</a>
+            </li>
+            <li class="menu__item">
+              <a href="sets.html" class="menu__link">Готовые аутфиты</a>
+            </li>
+            <li class="menu__item">
+              <a href="constructor.html" class="menu__link">Конструктор</a>
+            </li>
+          </ul>
+
+          <div class="header__inner">
+            <label class="amount">
+              <div class="amount__text">Бюджет</div>
+              <input type="number" class="amount__input" placeholder="Бюджет">
+            </label>
+
+            <a href="#" class="cart-btn">
+              <span class="cart-btn__icon icon-cart"></span>
+            </a>
+
+            <a href="#" class="profile-btn">
+              <span class="profile-btn_icon icon-profile"></span>
+              <div class="profile-btn__text">Профиль</div>
+            </a>
+          </div>
+        </div>
+      </header>
+
+      <div class="main">
+
+<!-- Баннер -->
+<section class="banner" style="background-image: url('img/banner.jpg');">
+  <div class="container-large">
+    <div class="banner__wrapper">
+      <h1 class="banner__title">Стильно и быстро</h1>
+      <div class="banner__text">
+        Не в чем пойти на вечеринку? Кажется, что ваша одежда слишком унылая? Думаете, что нельзя выглядеть стильно без больших денежных затрат?
+Мы нашли для вас решение — простой конструктор аутфитов под нужный вам бюджет и стиль. Попробуйте создать свой аутфит или посмотрите собранные стилистами, Вам точно понравится!
+      </div>
+      <a href="sets.html" class="btn btn_red banner__btn">Посмотреть готовые</a>
+    </div>
+  </div>
+</section>
+
+<!-- Что такое аутфит -->
+<section>
+  <div class="container">
+    <h2 class="title">Что вообще такое аутфит</h2>
+
+    <div class="whats">
+      <div class="whats__box">
+        <p class="whats__text">
+          Аутфит — это стильный и сочетающийся комплект одежды для определенного случая.
+	Неважно нужен вам аутфит для офиса, вечеринки, или просто на каждый день — можно собрать абсолютно любой.
+        </p>
+
+        <p class="whats__text">
+          А самое главное, это можно сделать всего лишь настроив пару необходимых фильтров и под нужный бюджет!
+        </p>
+
+        <a href="constructor.html" class="btn btn_red whats__btn">Собрать свой аутфит</a>
+      </div>
+
+      <img src="img/whats.svg" alt="" class="whats__img">
+    </div>
+  </div>
+</section>
+
+<!-- Слайдер -->
+<section>
+  <div class="container">
+    <h2 class="title">популярные аутфиты</h2>
+  </div>
+
+  <div class="swiper popular js-popular">
+    <div class="swiper-wrapper">
+      <div class="card swiper-slide">
+        <a href="sets-detail.html" class="card__top">
+          <!--<img src="img/content-1.jpg" alt="" class="card__img">-->
+          <img src="/outfits/random" alt="" class="card__img">
+        </a>
+
+        <div class="card__bottom">
+          <button type="button" class="card__tocart icon-cart-card"></button>
+          <div class="card__price">5 200 ₽</div>
+        </div>
+
+        <button type="button" class="card__tofav icon-heart"></button>
+      </div>
+
+      <div class="card swiper-slide">
+        <a href="sets-detail.html" class="card__top">
+<!--          <img src="img/content-2.jpg" alt="" class="card__img">-->
+          <img src="/outfits/random" alt="" class="card__img">
+        </a>
+
+        <div class="card__bottom">
+          <button type="button" class="card__tocart icon-cart-card"></button>
+          <div class="card__price">5 200 ₽</div>
+        </div>
+
+        <button type="button" class="card__tofav icon-heart"></button>
+      </div>
+
+      <div class="card swiper-slide">
+        <a href="sets-detail.html" class="card__top">
+         <!-- <img src="img/content-3.jpg" alt="" class="card__img">-->
+          <img src="/outfits/random" alt="" class="card__img">
+        </a>
+
+        <div class="card__bottom">
+          <button type="button" class="card__tocart icon-cart-card"></button>
+          <div class="card__price">5 200 ₽</div>
+        </div>
+
+        <button type="button" class="card__tofav icon-heart"></button>
+      </div>
+
+      <div class="card swiper-slide">
+        <a href="sets-detail.html" class="card__top">
+          <!--<img src="img/content-4.jpg" alt="" class="card__img">-->
+          <img src="/outfits/random" alt="" class="card__img">
+        </a>
+
+        <div class="card__bottom">
+          <button type="button" class="card__tocart icon-cart-card"></button>
+          <div class="card__price">5 200 ₽</div>
+        </div>
+
+        <button type="button" class="card__tofav icon-heart"></button>
+      </div>
+
+      <div class="card swiper-slide">
+        <a href="sets-detail.html" class="card__top">
+          <!--<img src="img/content-5.jpg" alt="" class="card__img">-->
+          <img src="/outfits/random" alt="" class="card__img">
+        </a>
+
+        <div class="card__bottom">
+          <button type="button" class="card__tocart icon-cart-card"></button>
+          <div class="card__price">5 200 ₽</div>
+        </div>
+
+        <button type="button" class="card__tofav icon-heart"></button>
+      </div>
+
+      <div class="card swiper-slide">
+        <a href="sets-detail.html" class="card__top">
+<!--          <img src="img/content-6.jpg" alt="" class="card__img">-->
+          <img src="/outfits/random" alt="" class="card__img">
+        </a>
+
+        <div class="card__bottom">
+          <button type="button" class="card__tocart icon-cart-card"></button>
+          <div class="card__price">5 200 ₽</div>
+        </div>
+
+        <button type="button" class="card__tofav icon-heart"></button>
+      </div>
+    </div>
+
+    <div class="pagination dots">
+      <div class="pagination__arrow pagination__arrow_prev icon-chevron-left"></div>
+      <div class="pagination__wrapper"></div>
+      <div class="pagination__arrow pagination__arrow_next icon-chevron-right"></div>
+    </div>
+  </div>
+</section>
+</div>
+</div>
+
+<footer class="footer">
+  <div class="footer__wrapper container">
+    <ul class="footer__list">
+      <li class="footer__item">
+        <a href="/" class="footer__link">Главная</a>
+      </li>
+      <li class="footer__item">
+        <a href="/" class="footer__link">Готовые аутфиты</a>
+      </li>
+      <li class="footer__item">
+        <a href="/" class="footer__link">Профиль</a>
+      </li>
+      <li class="footer__item">
+        <a href="/" class="footer__link">Конструктор аутфитов</a>
+      </li>
+    </ul>
+
+    <div class="app">
+      <div class="app__title">Скоро в смартфонах!</div>
+      <img src="img/google-play.png" alt="" class="app__img">
+    </div>
+
+    <div class="dev">
+      <svg class="dev__icon" width="56" height="56" viewBox="0 0 56 56" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <path d="M38.2805 16.8751C38.7569 16.2068 38.7569 15.3099 38.2805 14.6416C37.5134 13.5656 35.9148 13.5656 35.1477 14.6416L26.8873 26.2284C26.4109 26.8966 26.4109 27.7936 26.8873 28.4618C27.6544 29.5378 29.253 29.5378 30.0201 28.4618L38.2805 16.8751ZM47.7547 14.6364C46.9829 13.5614 45.3828 13.5641 44.6146 14.6416L30.0565 35.0619C29.2617 36.1768 27.6134 36.2005 26.7868 35.1089L18.4033 24.0372C17.6105 22.9902 16.0297 23.0129 15.2674 24.0822C14.7758 24.7717 14.7865 25.7 15.2939 26.3779L26.7895 41.7377C27.6127 42.8378 29.2684 42.8186 30.066 41.6998L47.7585 16.883C48.238 16.2104 48.2365 15.3073 47.7547 14.6364ZM9.62398 29.4835C9.12275 30.1816 9.13738 31.1255 9.66 31.8077L17.3691 41.8714C18.1649 42.9103 19.7387 42.8833 20.4983 41.8177C20.9942 41.1222 20.9785 40.1845 20.4596 39.506L12.7585 29.4362C11.9627 28.3956 10.388 28.4194 9.62398 29.4835Z" fill="white" fill-opacity="0.38" />
+        <mask id="mask0_104_143" style="mask-type:alpha" maskUnits="userSpaceOnUse" x="0" y="9" width="41" height="37">
+          <path d="M28.2028 44.7053L13.3236 26.512H10.483C11.4299 26.512 13.3236 26.0251 13.3236 24.0772C13.3236 22.1294 16.9758 21.1465 18.8018 20.8985L25.0917 29.0821L29.4878 31.3816L39.5651 17.1111L40.8502 13.3912V10.6859C40.1513 10.1449 37.9555 9.06274 34.7632 9.06274C31.5709 9.06274 21.0337 13.5265 16.1642 15.7584L5.54581 21.6425L0.946777 37.8067L14.8115 45.9903L28.2028 44.7053Z" fill="white" fill-opacity="0.38" />
+        </mask>
+        <g mask="url(#mask0_104_143)">
+          <path d="M38.2805 16.8751C38.7569 16.2068 38.7569 15.3099 38.2805 14.6416C37.5134 13.5656 35.9148 13.5656 35.1477 14.6416L26.8873 26.2284C26.4109 26.8966 26.4109 27.7936 26.8873 28.4618C27.6544 29.5378 29.253 29.5378 30.0201 28.4618L38.2805 16.8751ZM47.7547 14.6364C46.9829 13.5614 45.3828 13.5641 44.6146 14.6416L30.0565 35.0619C29.2617 36.1768 27.6134 36.2005 26.7868 35.1089L18.4033 24.0372C17.6105 22.9902 16.0297 23.0129 15.2674 24.0822C14.7758 24.7717 14.7865 25.7 15.2939 26.3779L26.7895 41.7377C27.6127 42.8378 29.2684 42.8186 30.066 41.6998L47.7585 16.883C48.238 16.2104 48.2365 15.3073 47.7547 14.6364ZM9.62398 29.4835C9.12275 30.1816 9.13738 31.1255 9.66 31.8077L17.3691 41.8714C18.1649 42.9103 19.7387 42.8833 20.4983 41.8177C20.9942 41.1222 20.9785 40.1845 20.4596 39.506L12.7585 29.4362C11.9627 28.3956 10.388 28.4194 9.62398 29.4835Z" fill="white" fill-opacity="0.38" />
+        </g>
+        <circle cx="28" cy="28" r="27.5" stroke="white" stroke-opacity="0.38" />
+      </svg>
+
+      <div class="dev__text">© VV app, 2022-2023</div>
+    </div>
+  </div>
+</footer>
+</div>
+
+<script src="js/swiper-bundle.min.js"></script>
+<script src="js/virtual-select.min.js"></script>
+<script src="js/script.min.js"></script>
+</body>
+
+</html>
