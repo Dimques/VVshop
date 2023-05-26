@@ -1,4 +1,8 @@
+using System.Text;
 using Microsoft.AspNetCore.Mvc;
+using Newtonsoft.Json;
+using VVapp.DbProviders;
+using VVapp.Loggers;
 using VVapp.Models;
 
 namespace VVapp.Controllers;
@@ -8,11 +12,18 @@ public class OutfitsController : BaseController
 {
     private readonly IHttpContextAccessor contextAccessor;
     private readonly string outfitsPath;
+    private readonly IDbProvider dbProvider;
+    private readonly ILog log;
     
-    public OutfitsController(IHttpContextAccessor contextAccessor, IWebHostEnvironment env)
+    public OutfitsController(IHttpContextAccessor contextAccessor, 
+        IWebHostEnvironment env,
+        IDbProvider dbProvider,
+        ILog log)
         : base(env)
     {
+        this.dbProvider = dbProvider;
         this.contextAccessor = contextAccessor;
+        this.log = log.ForContext("OutfitsController");
         outfitsPath = GetRandomResourcePath();
     }
     
@@ -20,6 +31,8 @@ public class OutfitsController : BaseController
     [Route("random")]
     public IActionResult GetRandomOutfit()
     {
+        throw new InvalidOperationException("Invalid operation dude");
+
         contextAccessor.HttpContext.Response.Headers.CacheControl = CacheControl.NoCache;
         return PhysicalFile(outfitsPath, ContentType.ImageJpeg);
     }
@@ -44,5 +57,21 @@ public class OutfitsController : BaseController
             ContentType = ContentType.ImageJpeg,
             StatusCode = 200
         };
+    }
+    
+    [HttpPost]
+    [Route("construct")]
+    public async Task<IActionResult> BuildOutfit()
+    {
+        using var reader = new StreamReader(Request.Body, Encoding.UTF8);
+        var json = await reader.ReadToEndAsync();
+        log.Info($"Got json: {json}");
+
+        var outfitParameters = JsonConvert.DeserializeObject<OutfitParameters>(json);
+        if (!Validator.ValidateOutfitParameters(outfitParameters))
+            return new BadRequestResult();
+
+        var outfitUrls = dbProvider.GetOutfitsUrls(outfitParameters!);
+        return Ok(outfitUrls);
     }
 }
