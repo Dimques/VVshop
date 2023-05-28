@@ -10,6 +10,8 @@ public class ConsoleLog : ILog
         return this;
     }
 
+    public void Success(string message) => Log(message, LogLevel.Success);
+
     public void Info(string message) => Log(message, LogLevel.Info);
 
     public void Warn(string message) => Log(message, LogLevel.Warn);
@@ -34,6 +36,7 @@ public class ConsoleLog : ILog
         {
             LogLevel.Warn => ConsoleColor.Yellow,
             LogLevel.Error => ConsoleColor.Red,
+            LogLevel.Success => ConsoleColor.Green,
             _ => ConsoleColor.White
         };
     }
@@ -42,6 +45,7 @@ public class ConsoleLog : ILog
     {
         Info = 0,
         Warn = 1,
-        Error = 2
+        Error = 2,
+        Success = 3
     }
 }

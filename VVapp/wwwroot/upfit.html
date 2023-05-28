@@ -102,7 +102,7 @@
         </div>
         <div>
             <input type="checkbox" id="black" name="wear-colors" value="Black">
-            <label for="black">White</label>
+            <label for="black">Black</label>
         </div>
         <div>
             <input type="checkbox" id="red" name="wear-colors" value="Red">
@@ -179,11 +179,11 @@
                 "Seasons": getCheckedValues(wearSeasonsInputs),
                 "Styles": getCheckedValues(wearStylesInputs),
                 "Colors": getCheckedValues(wearColorsInputs),
-                "Outerwear": outerwearId.value,
-                "TopWear": topWearId.value,
-                "BottomWear": bottomWearId.value,
-                "Shoes": shoesId.value,
-                "Accessories": accessoriesId.value
+                "OuterwearId": outerwearId.value,
+                "TopWearId": topWearId.value,
+                "BottomWearId": bottomWearId.value,
+                "ShoesId": shoesId.value,
+                "AccessoriesId": accessoriesId.value
             };
             formData.append("outfitData", JSON.stringify(wearData));
 

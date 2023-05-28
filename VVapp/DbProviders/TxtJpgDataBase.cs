@@ -53,7 +53,14 @@ public class TxtJpgDataBase : IDbProvider
         OutfitMeta outfitMeta;
         try
         {
+            log.Info($"Got json: {outfitJson}");
             outfitMeta = JsonConvert.DeserializeObject<OutfitMeta>(outfitJson) ?? new OutfitMeta();
+            log.Info($"Deserialized json: id={outfitMeta.Id}, budget={outfitMeta.Budget}," +
+                     $"gender={outfitMeta.Gender}, seasons=[{string.Join("|", outfitMeta.Seasons)}]," +
+                     $"styles=[{string.Join("|", outfitMeta.Styles)}], colors=[{string.Join("|", outfitMeta.Colors)}]," +
+                     $"outerwearId={outfitMeta.OuterwearId}, topwearId={outfitMeta.TopWearId}," +
+                     $"bottomwearId={outfitMeta.BottomWearId}, shoesId={outfitMeta.ShoesId}," +
+                     $"accessoriesId={outfitMeta.AccessoriesId}");
         }
         catch (Exception e)
         {
@@ -62,7 +69,7 @@ public class TxtJpgDataBase : IDbProvider
         }
 
         var isSuccessful = outfitsStorage.TryAdd(outfitMeta.Id, outfitMeta);
-        if (!isSuccessful)
+        if (isSuccessful)
         {
             var path = typeToPath[typeof(OutfitMeta)];
             var filePathWithoutExtension = Path.Combine(path, outfitMeta.Id.ToString());
@@ -73,6 +80,7 @@ public class TxtJpgDataBase : IDbProvider
 
             using var fileStream = new FileStream(jpgPath, FileMode.Create);
             outfitImage.CopyTo(fileStream);
+            log.Success($"Outfit with id '{outfitMeta.Id}' has added!");
         }
         else
         {
@@ -130,6 +138,8 @@ public class TxtJpgDataBase : IDbProvider
 
             using var fileStream = new FileStream(jpgPath, FileMode.Create);
             outerwearImage.CopyTo(fileStream);
+            
+            log.Success($"Outerwear with id '{outerwearMeta.Id}' has added!");
         }
         else
         {
@@ -164,6 +174,8 @@ public class TxtJpgDataBase : IDbProvider
 
             using var fileStream = new FileStream(jpgPath, FileMode.Create);
             topWearImage.CopyTo(fileStream);
+            
+            log.Success($"TopWear with id '{topWearMeta.Id}' has added!");
         }
         else
         {
@@ -198,6 +210,8 @@ public class TxtJpgDataBase : IDbProvider
 
             using var fileStream = new FileStream(jpgPath, FileMode.Create);
             bottomWearImage.CopyTo(fileStream);
+            
+            log.Success($"BottomWear with id '{bottomWearMeta.Id}' has added!");
         }
         else
         {
@@ -232,6 +246,8 @@ public class TxtJpgDataBase : IDbProvider
 
             using var fileStream = new FileStream(jpgPath, FileMode.Create);
             shoesImage.CopyTo(fileStream);
+            
+            log.Success($"Shoes with id '{shoesMeta.Id}' has added!");
         }
         else
         {
@@ -266,6 +282,8 @@ public class TxtJpgDataBase : IDbProvider
 
             using var fileStream = new FileStream(jpgPath, FileMode.Create);
             accessoryImage.CopyTo(fileStream);
+            
+            log.Success($"Accessory with id '{accessoryMeta.Id}' has added!");
         }
         else
         {
@@ -295,9 +313,8 @@ public class TxtJpgDataBase : IDbProvider
             .Where(path => path.EndsWith(".txt"));
         foreach (var path in txtFilePaths)
         {
-            var outfitName = path.Split("\\").LastOrDefault();
-            log.Info($"Try add outfit '{outfitName}' to the storage...");
-            var json = File.ReadAllText(outfitName!);
+            log.Info($"Try add outfit '{path}' to the storage...");
+            var json = File.ReadAllText(path);
             OutfitMeta outfitMeta;
             try
             {
@@ -324,9 +341,7 @@ public class TxtJpgDataBase : IDbProvider
             .Where(path => path.EndsWith(".txt"));;
         foreach (var path in txtFilePaths)
         {
-            var shoe = path.Split("\\").LastOrDefault();
-            log.Info($"Try add shoes '{shoe}' to the storage...");
-            
+            log.Info($"Try add shoes '{path}' to the storage...");
             var json = File.ReadAllText(path);
             ShoesMeta shoesMeta;
             try
@@ -352,9 +367,7 @@ public class TxtJpgDataBase : IDbProvider
             .Where(path => path.EndsWith(".txt"));;
         foreach (var path in filePaths)
         {
-            var outerwear = path.Split("\\").LastOrDefault();
-            log.Info($"Try add outerwear '{outerwear}' to the storage...");
-            
+            log.Info($"Try add outerwear '{path}' to the storage...");
             var json = File.ReadAllText(path);
             OuterwearMeta outerwearMeta;
             try
@@ -380,9 +393,7 @@ public class TxtJpgDataBase : IDbProvider
             .Where(path => path.EndsWith(".txt"));;
         foreach (var path in filePaths)
         {
-            var topWear = path.Split("\\").LastOrDefault();
-            log.Info($"Try add topwear '{topWear}' to the storage...");
-            
+            log.Info($"Try add topwear '{path}' to the storage...");
             var json = File.ReadAllText(path);
             TopWearMeta topWearMeta;
             try
@@ -408,9 +419,7 @@ public class TxtJpgDataBase : IDbProvider
             .Where(path => path.EndsWith(".txt"));;
         foreach (var path in filePaths)
         {
-            var bottomWear = path.Split("\\").LastOrDefault();
-            log.Info($"Try add bottomwear '{bottomWear}' to the storage...");
-            
+            log.Info($"Try add bottomwear '{path}' to the storage...");
             var json = File.ReadAllText(path);
             BottomWearMeta bottomWearMeta;
             try
@@ -436,9 +445,7 @@ public class TxtJpgDataBase : IDbProvider
             .Where(path => path.EndsWith(".txt"));;
         foreach (var path in filePaths)
         {
-            var accessory = path.Split("\\").LastOrDefault();
-            log.Info($"Try add accessory '{accessory}' to the storage...");
-            
+            log.Info($"Try add accessory '{path}' to the storage...");
             var json = File.ReadAllText(path);
             AccessoriesMeta accessoriesMeta;
             try

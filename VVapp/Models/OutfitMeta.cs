@@ -2,9 +2,9 @@ namespace VVapp.Models;
 
 public class OutfitMeta : Meta
 {
-    public Outerwear Outerwear { get; set; }
-    public TopWear TopWear { get; set; }
-    public BottomWear BottomWear { get; set; }
-    public Shoes Shoes { get; set; }
-    public Accessories Accessories { get; set; }
+    public int OuterwearId { get; set; }
+    public int TopWearId { get; set; }
+    public int BottomWearId { get; set; }
+    public int ShoesId { get; set; }
+    public int AccessoriesId { get; set; }
 }

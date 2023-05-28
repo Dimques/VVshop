@@ -38,8 +38,6 @@ public class AdminController : BaseController
         var outfitDescription = form["outfitData"];
         var outfitImage = form.Files["outfitImage"];
 
-        log.Info($"Got json: '{outfitDescription}'");
-        
         dbProvider.TryAddOutfit(outfitDescription, outfitImage!);
 
         return Ok();
