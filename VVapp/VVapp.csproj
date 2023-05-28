@@ -7,7 +7,9 @@
     </PropertyGroup>
 
     <ItemGroup>
+      <PackageReference Include="Microsoft.AspNetCore.Mvc.NewtonsoftJson" Version="6.0.16" />
       <PackageReference Include="Microsoft.AspNetCore.SpaServices.Extensions" Version="6.0.0" />
+      <PackageReference Include="Newtonsoft.Json" Version="13.0.3" />
     </ItemGroup>
 
     <ItemGroup>
@@ -18,6 +20,17 @@
       <_ContentIncludedByDefault Remove="Views\Shared\_ValidationScriptsPartial.cshtml" />
       <_ContentIncludedByDefault Remove="Views\_ViewImports.cshtml" />
       <_ContentIncludedByDefault Remove="Views\_ViewStart.cshtml" />
+    </ItemGroup>
+
+    <ItemGroup>
+      <Folder Include="wwwroot\db\accessories" />
+      <Folder Include="wwwroot\db\bottomwear" />
+      <Folder Include="wwwroot\db\outerwear" />
+      <Folder Include="wwwroot\db\outfits" />
+      <Folder Include="wwwroot\db\shoes" />
+      <Folder Include="wwwroot\db\topwear" />
+      <Folder Include="wwwroot\img\db\outfits" />
+      <Folder Include="wwwroot\img\db\wears" />
     </ItemGroup>
 
 </Project>

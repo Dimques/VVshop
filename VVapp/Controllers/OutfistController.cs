@@ -11,7 +11,6 @@ namespace VVapp.Controllers;
 public class OutfitsController : BaseController
 {
     private readonly IHttpContextAccessor contextAccessor;
-    private readonly string outfitsPath;
     private readonly IDbProvider dbProvider;
     private readonly ILog log;
     
@@ -19,12 +18,11 @@ public class OutfitsController : BaseController
         IWebHostEnvironment env,
         IDbProvider dbProvider,
         ILog log)
-        : base(env)
+        : base(env, log)
     {
         this.dbProvider = dbProvider;
         this.contextAccessor = contextAccessor;
         this.log = log.ForContext("OutfitsController");
-        outfitsPath = GetRandomResourcePath();
     }
     
     [HttpGet]
@@ -32,9 +30,6 @@ public class OutfitsController : BaseController
     public IActionResult GetRandomOutfit()
     {
         throw new InvalidOperationException("Invalid operation dude");
-
-        contextAccessor.HttpContext.Response.Headers.CacheControl = CacheControl.NoCache;
-        return PhysicalFile(outfitsPath, ContentType.ImageJpeg);
     }
 
     [HttpGet]
@@ -67,11 +62,12 @@ public class OutfitsController : BaseController
         var json = await reader.ReadToEndAsync();
         log.Info($"Got json: {json}");
 
-        var outfitParameters = JsonConvert.DeserializeObject<OutfitParameters>(json);
+        var outfitParameters = JsonConvert.DeserializeObject<OutfitMeta>(json);
         if (!Validator.ValidateOutfitParameters(outfitParameters))
             return new BadRequestResult();
 
-        var outfitUrls = dbProvider.GetOutfitsUrls(outfitParameters!);
-        return Ok(outfitUrls);
+        /*var outfitUrls = dbProvider.GetOutfitsUrls(outfitParameters!);
+        return Ok(outfitUrls);*/
+        return Ok();
     }
 }

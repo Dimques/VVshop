@@ -1,0 +1,212 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>Outfit Form</title>
+    <style>
+        label {
+            display: block;
+        }
+
+        input[type="checkbox"],
+        label[for] {
+            display: inline-block;
+            vertical-align: middle;
+        }
+
+        input[type="checkbox"] + label {
+            margin-right: 10px;
+        }
+
+        input[type="checkbox"] {
+            width: 20px;
+            height: 20px;
+        }
+
+        .checkbox-container {
+            display: flex;
+            flex-wrap: wrap;
+        }
+
+        .checkbox-container div {
+            flex: 1 0 20%;
+        }
+    </style>
+</head>
+
+<body>
+<form id="wear-form" enctype="multipart/form-data">
+    <div>
+        <label for="image">Image file path:</label>
+        <input type="file" id="image" name="image">
+    </div>
+    <div>
+        <label for="wear-id">Wear ID:</label>
+        <input type="number" id="wear-id" name="wear-id">
+    </div>
+    <div>
+        <label for="wear-budget">Wear budget:</label>
+        <input type="number" id="wear-budget" name="wear-budget">
+    </div>
+    <div>
+        <label for="wear-gender">Wear gender:</label>
+        <select id="wear-gender" name="wear-gender">
+            <option value="Male">Male</option>
+            <option value="Female">Female</option>
+            <option value="Unisex">Unisex</option>
+        </select>
+    </div>
+    <div class="checkbox-container">
+        <label>Wear seasons:</label>
+        <div>
+            <input type="checkbox" id="summer" name="wear-seasons" value="Summer">
+            <label for="summer">Summer</label>
+        </div>
+        <div>
+            <input type="checkbox" id="autumn" name="wear-seasons" value="Autumn">
+            <label for="autumn">Autumn</label>
+        </div>
+        <div>
+            <input type="checkbox" id="winter" name="wear-seasons" value="Winter">
+            <label for="winter">Winter</label>
+        </div>
+        <div>
+            <input type="checkbox" id="spring" name="wear-seasons" value="Spring">
+            <label for="spring">Spring</label>
+        </div>
+    </div>
+    <div class="checkbox-container">
+        <label>Wear styles:</label>
+        <div>
+            <input type="checkbox" id="evening" name="wear-styles" value="Evening">
+            <label for="evening">Evening</label>
+        </div>
+        <div>
+            <input type="checkbox" id="business" name="wear-styles" value="Business">
+            <label for="business">Business</label>
+        </div>
+        <div>
+            <input type="checkbox" id="sport" name="wear-styles" value="Sport">
+            <label for="sport">Sport</label>
+        </div>
+        <div>
+            <input type="checkbox" id="casual" name="wear-styles" value="Casual">
+            <label for="casual">Casual</label>
+        </div>
+    </div>
+    <div class="checkbox-container">
+        <label>Wear colors:</label>
+        <div>
+            <input type="checkbox" id="white" name="wear-colors" value="White">
+            <label for="white">White</label>
+        </div>
+        <div>
+            <input type="checkbox" id="black" name="wear-colors" value="Black">
+            <label for="black">White</label>
+        </div>
+        <div>
+            <input type="checkbox" id="red" name="wear-colors" value="Red">
+            <label for="red">Red</label>
+        </div>
+        <div>
+            <input type="checkbox" id="green" name="wear-colors" value="Green">
+            <label for="green">Green</label>
+        </div>
+        <div>
+            <input type="checkbox" id="blue" name="wear-colors" value="Blue">
+            <label for="blue">Blue</label>
+        </div>
+        <div>
+            <input type="checkbox" id="pink" name="wear-colors" value="Pink">
+            <label for="pink">Pink</label>
+        </div>
+        <div>
+            <input type="checkbox" id="leopard" name="wear-colors" value="Leopard">
+            <label for="leopard">Leopard</label>
+        </div>
+    </div>
+    <div>
+        <label for="outerwear-id">Outerwear id:</label>
+        <input type="text" id="outerwear-id" name="outerwear-id">
+    </div>
+    <div>
+        <label for="topwear-id">Topwear id:</label>
+        <input type="text" id="topwear-id" name="topwear-id">
+    </div>
+    <div>
+        <label for="bottomwear-id">Bottomwear id:</label>
+        <input type="text" id="bottomwear-id" name="bottomwear-id">
+    </div>
+    <div>
+        <label for="shoes-id">Shoes id:</label>
+        <input type="text" id="shoes-id" name="shoes-id">
+    </div>
+    <div>
+        <label for="accessories-id">Accessries id:</label>
+        <input type="text" id="accessories-id" name="accessories-id">
+    </div>
+    <button type="submit">Submit</button>
+</form>
+
+<script>
+    const wearForm = document.getElementById("wear-form");
+    wearForm.addEventListener("submit", (event) => {
+        event.preventDefault();
+
+        const imageInput = document.getElementById("image");
+        const wearIdInput = document.getElementById("wear-id");
+        const wearBudgetInput = document.getElementById("wear-budget");
+        const wearGenderInput = document.getElementById("wear-gender");
+        const wearSeasonsInputs = document.querySelectorAll('input[name="wear-seasons"]:checked');
+        const wearStylesInputs = document.querySelectorAll('input[name="wear-styles"]:checked');
+        const wearColorsInputs = document.querySelectorAll('input[name="wear-colors"]:checked');
+        const outerwearId = document.getElementById("outerwear-id");
+        const topWearId = document.getElementById("topwear-id");
+        const bottomWearId = document.getElementById("bottomwear-id");
+        const shoesId = document.getElementById("shoes-id");
+        const accessoriesId = document.getElementById("accessories-id");
+
+        const formData = new FormData();
+        const file = imageInput.files[0];
+        const reader = new FileReader();
+
+        reader.onload = (event) => {
+            formData.append("outfitImage", file);
+            const wearData = {
+                "Id": wearIdInput.value,
+                "Budget": wearBudgetInput.value,
+                "Gender": wearGenderInput.value,
+                "Seasons": getCheckedValues(wearSeasonsInputs),
+                "Styles": getCheckedValues(wearStylesInputs),
+                "Colors": getCheckedValues(wearColorsInputs),
+                "Outerwear": outerwearId.value,
+                "TopWear": topWearId.value,
+                "BottomWear": bottomWearId.value,
+                "Shoes": shoesId.value,
+                "Accessories": accessoriesId.value
+            };
+            formData.append("outfitData", JSON.stringify(wearData));
+
+            const host = "localhost:7279";
+            const url = `https://${host}/upload-outfit`;
+            const xhr = new XMLHttpRequest();
+            xhr.open("POST", url, true);
+            xhr.onload = () => {
+                if (xhr.status === 200) {
+                    console.log("Success");
+                } else {
+                    console.error("Error");
+                }
+            };
+            xhr.send(formData);
+        };
+
+        reader.readAsDataURL(file);
+    });
+
+    function getCheckedValues(inputs) {
+        return Array.from(inputs).map(checkbox => checkbox.value);
+    }
+</script>
+</body>
+</html>

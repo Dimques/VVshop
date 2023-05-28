@@ -1,0 +1,154 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>Wear Form</title>
+    <style>
+        label {
+            display: block;
+        }
+
+        input[type="checkbox"],
+        label[for] {
+            display: inline-block;
+            vertical-align: middle;
+        }
+    </style>
+</head>
+
+<body>
+<form id="wear-form" enctype="multipart/form-data">
+    <div>
+        <label for="image">Image file path:</label>
+        <input type="file" id="image" name="image">
+    </div>
+    <div>
+        <label for="wear-id">Wear ID:</label>
+        <input type="number" id="wear-id" name="wear-id">
+    </div>
+    <div>
+        <label for="wear-budget">Wear budget:</label>
+        <input type="number" id="wear-budget" name="wear-budget">
+    </div>
+    <div>
+        <label for="wear-gender">Wear gender:</label>
+        <select id="wear-gender" name="wear-gender">
+            <option value="Male">Male</option>
+            <option value="Female">Female</option>
+            <option value="Unisex">Unisex</option>
+        </select>
+    </div>
+    <div>
+        <label for="wear-seasons">Wear seasons:</label>
+        <input type="text" id="wear-seasons" name="wear-seasons">
+    </div>
+    <div>
+        <label for="wear-styles">Wear styles:</label>
+        <input type="text" id="wear-styles" name="wear-styles">
+    </div>
+    <div>
+        <label for="wear-colors">Wear colors:</label>
+        <input type="text" id="wear-colors" name="wear-colors">
+    </div>
+    <div>
+        <label for="wear-type">Wear type:</label>
+        <select id="wear-type" name="wear-type">
+            <option value="Outerwear">Outerwear</option>
+            <option value="TopWear">TopWear</option>
+            <option value="BottomWear">BottomWear</option>
+            <option value="Shoes">Shoes</option>
+            <option value="Accessories">Accessories</option>
+        </select>
+    </div>
+    <div>
+        <label for="wear-subtype">Wear subtype:</label>
+        <select id="wear-subtype" name="wear-subtype"></select>
+    </div>
+    <button type="submit">Submit</button>
+</form>
+
+<script>
+    const wearTypeSelect = document.getElementById("wear-type");
+    const wearSubtypeSelect = document.getElementById("wear-subtype");
+    const outerwearOptions = ["None", "Raincoat", "Coat", "Jacket", "Sweatshirt", "Hoodie"];
+    const topWearOptions = ["None", "TeeShirt", "Shirt", "Undershirt", "Polo", "Blouse", "Top", "SportJacket"];
+    const bottomWearOptions = ["None", "Pants", "Skirt", "Shorts"];
+    const shoesOptions = ["None", "Sneakers", "RunningShoes", "Boots", "WomenShoes", "Sandal"];
+    const accessoriesOptions = ["None", "Glasses", "Watch", "Chocker", "Cap"];
+
+    wearTypeSelect.addEventListener("change", () => {
+        const selectedType = wearTypeSelect.value;
+        let options = [];
+
+        if (selectedType === "Outerwear") {
+            options = outerwearOptions;
+        } else if (selectedType === "TopWear") {
+            options = topWearOptions;
+        } else if (selectedType === "BottomWear") {
+            options = bottomWearOptions;
+        } else if (selectedType === "Shoes") {
+            options = shoesOptions;
+        } else if (selectedType === "Accessories") {
+            options = accessoriesOptions;
+        }
+
+        wearSubtypeSelect.innerHTML = "";
+        for (const option of options) {
+            const optionElement = document.createElement("option");
+            optionElement.value = option;
+            optionElement.textContent = option;
+            wearSubtypeSelect.appendChild(optionElement);
+        }
+    });
+
+    const wearForm = document.getElementById("wear-form");
+    wearForm.addEventListener("submit", (event) => {
+        event.preventDefault();
+
+        const imageInput = document.getElementById("image");
+        const wearIdInput = document.getElementById("wear-id");
+        const wearBudgetInput = document.getElementById("wear-budget");
+        const wearGenderInput = document.getElementById("wear-gender");
+        const wearSeasonsInput = document.getElementById("wear-seasons");
+        const wearStylesInput = document.getElementById("wear-styles");
+        const wearColorsInput = document.getElementById("wear-colors");
+        const wearTypeInput = document.getElementById("wear-type");
+        const wearSubtypeInput = document.getElementById("wear-subtype");
+
+        const formData = new FormData();
+        const file = imageInput.files[0];
+        const reader = new FileReader();
+
+        reader.onload = (event) => {
+            formData.append("wearImage", file);
+            const wearData = {
+                "wear-id": wearIdInput.value,
+                "wear-budget": wearBudgetInput.value,
+                "wear-gender": wearGenderInput.value,
+                "wear-seasons": wearSeasonsInput.value,
+                "wear-styles": wearStylesInput.value,
+                "wear-colors": wearColorsInput.value,
+                "wear-type": wearTypeInput.value,
+                "wear-subtype": wearSubtypeInput.value,
+            };
+            formData.append("wearData", JSON.stringify(wearData));
+
+            const host = "localhost:5000";
+            const url = `https://${host}/upload-wear`;
+            const xhr = new XMLHttpRequest();
+            xhr.open("POST", url, true);
+            xhr.onload = () => {
+                if (xhr.status === 200) {
+                    console.log("Success");
+                } else {
+                    console.error("Error");
+                }
+            };
+            xhr.send(formData);
+        };
+
+        reader.readAsDataURL(file);
+    });
+</script>
+</body>
+</html>
